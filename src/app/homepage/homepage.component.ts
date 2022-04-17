@@ -18,7 +18,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.welcomeInHindi();
+    this.GoToSleep(this.welcomeInHindi());
   }
 
   private GoToSleep(callback: any) {

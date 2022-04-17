@@ -1,0 +1,36 @@
+#navbarToggler {
+    .tabBtn {
+        border: none;
+        background: none;
+    }
+
+    .tabBtn.active{
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        border-color: rgba(0,0,0,.1);
+        background: none;
+    }
+}
+
+.navbar-toggler {
+    margin-right: 5%;
+}
+
+.navbar {
+    background-color: rgba(241, 235, 235, 0.822);
+    color: rgba(0,0,0,.9) !important;
+    .navbar-brand {
+        margin-right: 5%;
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    #navbar-brand { order: 2; }
+    #collapse-button { order: 1; }
+}
+
+@media only screen and (min-width: 913px) {
+    #navbar-brand { order: 2; }
+    #navbarToggler { order: 1; }
+}

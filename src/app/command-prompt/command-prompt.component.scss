@@ -1,0 +1,109 @@
+.commandPromptDiv {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid;
+    width: 50%;
+    height: 55%;
+    box-shadow: 1px 1px 1px white;
+    border-color: black;
+    border-radius: 5px;
+    background-color: black;
+    animation: slideIn ease 3s;
+
+    .headerDiv {
+        border-bottom: 1px solid;
+        border-color: white;
+        margin: 0%;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        font-size: small;
+        padding: 0.2rem;
+    }
+
+    .cmdIcon {
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+    }
+
+    .cursorIcon {
+        height: 20px;
+        width: 20px;
+        margin-left: 40%;
+        animation: cursorSlideIn ease 3s;
+        display: inline-block;
+    }
+
+    .cmdLabel {
+        vertical-align: top;
+        margin-left: 1%;
+    }
+
+    .cmdBody {
+        font-family: monospace;
+        p {
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #lineone {
+            width: 10rem;
+            opacity: 0;
+            animation: type 3s steps(20, end);
+            animation-fill-mode: forwards;
+            animation-delay: 3s;
+        }
+
+        #linetwo {
+            width: 10rem;
+            opacity: 0;
+            animation: type 3s steps(20, end);
+            animation-delay: 6s;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+@keyframes type {
+    0% {
+        width: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translate(50%, 50%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}

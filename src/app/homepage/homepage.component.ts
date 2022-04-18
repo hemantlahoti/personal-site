@@ -7,9 +7,12 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit, AfterViewInit {
 
-  static welcomeTimeGap = 1500;
+  static welcomeTimeGap = 100; // 1.5 secs
+  static pageStartTimeout = 100; // 1.5
+  static commandPromptChangeTimeout = 1000; // 3sec
 
   welcomeMessage: string;
+  showCommandPrompt = false;
 
   constructor() { }
 
@@ -18,51 +21,60 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.GoToSleep(this.welcomeInHindi());
+    this.GoToSleep(this.welcomeInHindi.bind(this), HomepageComponent.pageStartTimeout);
   }
 
-  private GoToSleep(callback: any) {
+  private GoToSleep(callback: any, timeout: number) {
     setTimeout(function () {
       if (callback) {
         callback();
       }
-    }, HomepageComponent.welcomeTimeGap);
+    }, timeout);
   }
 
   private welcomeInEnglish() {
     const welcomeDiv = document.getElementById('welcome') as HTMLDivElement;
     this.welcomeMessage = 'Welcome!';
-    welcomeDiv.classList.remove('fade-out');
-    welcomeDiv.classList.add('fade-in');
-    setTimeout(() => {
-      welcomeDiv.classList.remove('fade-in');
-      welcomeDiv.classList.add('fade-out');
-      this.GoToSleep(this.welcomeInFrench.bind(this));
-    }, HomepageComponent.welcomeTimeGap);
+    if (welcomeDiv) {
+      welcomeDiv.classList.remove('fade-out');
+      welcomeDiv.classList.add('fade-in');
+      setTimeout(() => {
+        welcomeDiv.classList.remove('fade-in');
+        welcomeDiv.classList.add('fade-out');
+        this.GoToSleep(this.welcomeInFrench.bind(this),HomepageComponent.welcomeTimeGap);
+      }, HomepageComponent.welcomeTimeGap);
+    }
   }
 
   private welcomeInFrench(callback: any = null) {
     const welcomeDiv = document.getElementById('welcome') as HTMLDivElement;
     this.welcomeMessage = 'Bienvenue!';
-    welcomeDiv.classList.remove('fade-out');
-    welcomeDiv.classList.add('fade-in');
-    setTimeout(() => {
-      welcomeDiv.classList.remove('fade-in');
-      welcomeDiv.classList.add('fade-out');
-      if (callback) {
-        this.GoToSleep(callback.bind(this));
-      }
-    }, HomepageComponent.welcomeTimeGap);
+    if (welcomeDiv) {
+      welcomeDiv.classList.remove('fade-out');
+      welcomeDiv.classList.add('fade-in');
+      setTimeout(() => {
+        welcomeDiv.classList.remove('fade-in');
+        welcomeDiv.classList.add('fade-out');
+        this.GoToSleep(this.changeToCommandPrompt.bind(this),HomepageComponent.commandPromptChangeTimeout);
+      }, HomepageComponent.welcomeTimeGap);
+    }
   }
 
   private welcomeInHindi() {
     const welcomeDiv = document.getElementById('welcome') as HTMLDivElement;
-    setTimeout(() => {
-      welcomeDiv.classList.remove('fade-in');
-      welcomeDiv.classList.add('fade-out');
-      this.GoToSleep(this.welcomeInEnglish.bind(this));
-    }, HomepageComponent.welcomeTimeGap);
+    if (welcomeDiv) {
+      welcomeDiv.classList.remove('fade-out');
+      welcomeDiv.classList.add('fade-in');
+      setTimeout(() => {
+        welcomeDiv.classList.remove('fade-in');
+        welcomeDiv.classList.add('fade-out');
+        this.GoToSleep(this.welcomeInEnglish.bind(this),HomepageComponent.welcomeTimeGap);
+      }, HomepageComponent.welcomeTimeGap);
+    }
   }
 
+  changeToCommandPrompt() {
+    this.showCommandPrompt = true;
+  }
 
 }

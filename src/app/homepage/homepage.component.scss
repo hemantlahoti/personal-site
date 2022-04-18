@@ -8,6 +8,7 @@
     font-size: 400%;
     width: 100%;
     text-align: center;
+    opacity: 0;
 }
 .fade-in {
     animation: fadeIn ease 3s;
@@ -83,10 +84,6 @@
     100% {
         opacity: 0;
     }
-}
-
-.welcome {
-    opacity: 0;
 }
 
 @-moz-keyframes fadeOut {

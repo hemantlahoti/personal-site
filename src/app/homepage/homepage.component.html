@@ -1,3 +1,7 @@
-<div class="fade-in welcome" id="welcome">
+<div class="welcome" id="welcome" *ngIf="!showCommandPrompt">
     <span [innerHTML]="welcomeMessage"></span>  
+</div>
+
+<div *ngIf="showCommandPrompt">
+    <app-command-prompt></app-command-prompt>
 </div>

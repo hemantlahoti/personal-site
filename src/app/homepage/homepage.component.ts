@@ -7,9 +7,9 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit, AfterViewInit {
 
-  static welcomeTimeGap = 1500; // 1.5 secs
-  static pageStartTimeout = 1500; // 1.5 secs
-  static commandPromptChangeTimeout = 3000; // 3 secs
+  static welcomeTimeGap = 1500; // 1.5 seconds
+  static pageStartTimeout = 1500; // 1.5 seconds
+  static commandPromptChangeTimeout = 3000; // 3 seconds
 
   welcomeMessage: string;
   showCommandPrompt = false;

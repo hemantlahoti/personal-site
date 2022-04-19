@@ -20,7 +20,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    this.welcomeMessage = 'स्वागत हे!';
+    this.welcomeMessage = 'नमस्ते!';
   }
 
   ngAfterViewInit(): void {

@@ -40,6 +40,12 @@
         display: inline-block;
     }
 
+    .closeIcon {
+        width: 113px;
+        height: 21px;
+        float: right;
+    }
+
     .cmdLabel {
         vertical-align: top;
         margin-left: 1%;
@@ -58,14 +64,14 @@
             opacity: 0;
             animation: type 3s steps(20, end);
             animation-fill-mode: forwards;
-            animation-delay: 3s;
+            animation-delay: 4s;
         }
 
         #linetwo {
             width: 10rem;
             opacity: 0;
             animation: type 3s steps(20, end);
-            animation-delay: 6s;
+            animation-delay: 7s;
             animation-fill-mode: forwards;
         }
     }
@@ -100,7 +106,19 @@
 
 @keyframes slideIn {
     0% {
-        transform: translate(50%, 50%);
+        transform: translate(-50%, 150%);
+    }
+
+    40% {
+        transform: translate(-50%, 60%);
+    }
+
+    60% {
+        transform: translate(-50%, 20%);
+    }
+
+    80% {
+        transform: translate(-50%, -45%);
     }
 
     100% {

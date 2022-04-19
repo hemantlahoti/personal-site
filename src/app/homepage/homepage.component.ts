@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
@@ -11,10 +11,13 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   static pageStartTimeout = 1500; // 1.5 seconds
   static commandPromptChangeTimeout = 3000; // 3 seconds
 
+  public removePressEventListener: () => void;
+  public removeClickEventListener: () => void;
+  
   welcomeMessage: string;
   showCommandPrompt = false;
-
-  constructor() { }
+  showHomePageTiles = false;
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.welcomeMessage = 'स्वागत हे!';
@@ -41,7 +44,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         welcomeDiv.classList.remove('fade-in');
         welcomeDiv.classList.add('fade-out');
-        this.GoToSleep(this.welcomeInFrench.bind(this),HomepageComponent.welcomeTimeGap);
+        this.GoToSleep(this.welcomeInFrench.bind(this), HomepageComponent.welcomeTimeGap);
       }, HomepageComponent.welcomeTimeGap);
     }
   }
@@ -55,7 +58,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         welcomeDiv.classList.remove('fade-in');
         welcomeDiv.classList.add('fade-out');
-        this.GoToSleep(this.changeToCommandPrompt.bind(this),HomepageComponent.commandPromptChangeTimeout);
+        this.GoToSleep(this.changeToCommandPrompt.bind(this), HomepageComponent.commandPromptChangeTimeout);
       }, HomepageComponent.welcomeTimeGap);
     }
   }
@@ -68,13 +71,28 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         welcomeDiv.classList.remove('fade-in');
         welcomeDiv.classList.add('fade-out');
-        this.GoToSleep(this.welcomeInEnglish.bind(this),HomepageComponent.welcomeTimeGap);
+        this.GoToSleep(this.welcomeInEnglish.bind(this), HomepageComponent.welcomeTimeGap);
       }, HomepageComponent.welcomeTimeGap);
     }
   }
 
   changeToCommandPrompt() {
     this.showCommandPrompt = true;
+    setTimeout(() => {
+      this.removeClickEventListener = this.renderer.listen(document, 'click', (event) => {
+        this.handleAnchorClick(event);
+      });
+      this.removePressEventListener = this.renderer.listen(document, 'keypress', (event) => {
+        this.handleAnchorClick(event);
+      });
+    }, 25000);
+  }
+
+  handleAnchorClick(event) {
+    this.showCommandPrompt = false;
+    this.showHomePageTiles = true;
+    this.removeClickEventListener();
+    this.removePressEventListener();
   }
 
 }

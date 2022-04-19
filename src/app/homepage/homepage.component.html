@@ -1,7 +1,10 @@
 <div class="welcome" id="welcome" *ngIf="!showCommandPrompt">
-    <span [innerHTML]="welcomeMessage"></span>  
+    <span [innerHTML]="welcomeMessage"></span>
 </div>
 
 <div *ngIf="showCommandPrompt">
     <app-command-prompt></app-command-prompt>
+</div>
+<div *ngIf="showHomePageTiles">
+    <app-homepage-tiles></app-homepage-tiles>
 </div>

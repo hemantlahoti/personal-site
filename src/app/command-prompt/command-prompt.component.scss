@@ -70,23 +70,73 @@
         #lineone {
             width: 10rem;
             opacity: 0;
-            animation: type 3s steps(20, end);
+            animation: type 2s steps(20, end);
             animation-fill-mode: forwards;
             animation-delay: 4s;
             display: inline-block;
         }
-
+        #cmdLocationText1 {
+            opacity: 0;
+            animation: show;
+            animation-delay: 6s;
+            animation-fill-mode: forwards;
+            display: inline-block;
+        }
         #linetwo {
+            width: 35rem;
+            opacity: 0;
+            animation: type 8s steps(60, end);
+            animation-delay: 6s;
+            animation-fill-mode: forwards;
+            display: inline-block;
+        }
+        #cmdLocationText2 {
+            opacity: 0;
+            animation: show;
+            animation-delay: 14s;
+            animation-fill-mode: forwards;
+            display: inline-block;
+        }
+        #linetwotwo {
             width: 10rem;
             opacity: 0;
-            animation: type 3s steps(20, end);
-            animation-delay: 7s;
+            animation: type 2s steps(20, end);
+            animation-delay: 14s;
             animation-fill-mode: forwards;
+            display: inline-block;
         }
+
+        #cmdLocationText3 {
+            opacity: 0;
+            animation: show;
+            animation-delay: 16s;
+            animation-fill-mode: forwards;
+            display: inline-block;
+        }
+
+        #linethree {
+            width: 34rem;
+            opacity: 0;
+            animation: type 10s steps(70, end);
+            animation-delay: 16s;
+            animation-fill-mode: forwards;
+            display: inline-block;
+        }
+
         .cmdContainer {
             width: 100%;
             height: 200%;
         }
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 

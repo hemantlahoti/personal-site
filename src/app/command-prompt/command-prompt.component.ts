@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-command-prompt',
   templateUrl: './command-prompt.component.html',
   styleUrls: ['./command-prompt.component.scss']
 })
-export class CommandPromptComponent implements OnInit, AfterViewInit{
+export class CommandPromptComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
@@ -14,18 +14,18 @@ export class CommandPromptComponent implements OnInit, AfterViewInit{
 
   ngAfterViewInit(): void {
     const cursorIcon = document.getElementById('cursorIcon') as HTMLSpanElement;
-    if(cursorIcon){
-      setTimeout(()=>{
+    if (cursorIcon) {
+      setTimeout(() => {
         cursorIcon.style.display = 'none';
         this.ShowCmdBody();
       }, 3100);
     }
   }
 
-  ShowCmdBody(){
-    setTimeout(()=>{
+  ShowCmdBody() {
+    setTimeout(() => {
       const cmdBody = document.getElementById('cmdBody') as HTMLDivElement;
-      if(cmdBody){
+      if (cmdBody) {
         cmdBody.style.display = 'inline-block';
       }
     }, 1000);

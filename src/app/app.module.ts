@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { CommandPromptComponent } from './command-prompt/command-prompt.component';
+import { HomepageTilesComponent } from './homepage-tiles/homepage-tiles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     ExperienceComponent,
-    CommandPromptComponent
+    CommandPromptComponent,
+    HomepageTilesComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,15 @@
 
 body {
     background: fixed;
-    background-color: rgb(51, 47, 47);
+    background-color: rgb(168, 162, 255);
     color: white;
     overflow: hidden;
 }
 
 span {
     caret-color: transparent;
+}
+
+@media only screen and (max-width: 700px) {
+    body {overflow: auto;}
 }

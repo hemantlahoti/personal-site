@@ -1,36 +1,52 @@
-#navbarToggler {
-    .tabBtn {
-        border: none;
-        background: none;
+@use "sass:math";
+// background css
+$d: 70;      // density
+$w: 600;     // grid size
+$s: 3s;       // speed
+
+// Generate the snow image using radial gradients
+$grad: ();
+@for $i from 0 to $d {
+  $v: random(4) + 2;
+  $a: random(5) * .1 + .5;
+  $grad: $grad, radial-gradient(
+      $v+px $v+px at
+      (random($w - $v * 2) + $v)+px
+      (random($w - $v * 2) + $v)+px, 
+      rgba(255,255,255,$a) 50%,
+      rgba(0,0,0,0)
+  ) !global;
+}
+
+// background css
+.snow, .snow:before, .snow:after {
+    position: absolute;
+    top: -$w + px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: $grad;
+    background-size: $w + px $w + px;
+    animation: snow $s linear infinite;
+    opacity: 0.2;
+    content: "";
+  }
+  .snow:after {
+    margin-left: math.div(-$w, 3) + px;
+    opacity: .4;
+    animation-duration: $s*2;
+    animation-direction: reverse;
+    filter: blur(3px);
+  }
+  .snow:before {
+    animation-duration: $s*3;
+    animation-direction: reverse;
+    margin-left: math.div(-$w, 2) + px;
+    opacity: .65;
+    filter: blur(1.5px);
+  }
+  @keyframes snow {
+    to {
+      transform: translateY($w + px);
     }
-
-    .tabBtn.active{
-        border: 1px solid transparent;
-        border-radius: 0.25rem;
-        border-color: rgba(0,0,0,.1);
-        background: none;
-    }
-}
-
-.navbar-toggler {
-    margin-right: 5%;
-}
-
-.navbar {
-    background-color: rgba(241, 235, 235, 0.822);
-    color: rgba(0,0,0,.9) !important;
-    .navbar-brand {
-        margin-right: 5%;
-        font-weight: 500;
-    }
-}
-
-@media only screen and (max-width: 912px) {
-    #navbar-brand { order: 2; }
-    #collapse-button { order: 1; }
-}
-
-@media only screen and (min-width: 913px) {
-    #navbar-brand { order: 2; }
-    #navbarToggler { order: 1; }
-}
+  }

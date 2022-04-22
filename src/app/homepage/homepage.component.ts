@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-homepage',
@@ -13,11 +14,13 @@ export class HomepageComponent implements OnInit, AfterViewInit {
 
   public removePressEventListener: () => void;
   public removeClickEventListener: () => void;
-  
+
+  get toShowCMD(): boolean { return this.globalService.showCommandPrompt; }
+  get toShowTiles(): boolean { return this.globalService.showHomePageTiles; }
+
   welcomeMessage: string;
-  showCommandPrompt = false;
-  showHomePageTiles = false;
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+
+  constructor(private renderer: Renderer2, private globalService: GlobalService) { }
 
   ngOnInit(): void {
     this.welcomeMessage = 'नमस्ते!';
@@ -77,7 +80,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   changeToCommandPrompt() {
-    this.showCommandPrompt = true;
+    this.globalService.ToShowCommandPrompt();
     setTimeout(() => {
       this.removeClickEventListener = this.renderer.listen(document, 'click', (event) => {
         this.handleAnchorClick(event);
@@ -89,8 +92,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   handleAnchorClick(event) {
-    this.showCommandPrompt = false;
-    this.showHomePageTiles = true;
+    this.globalService.ToShowHomePageTiles();
     this.removeClickEventListener();
     this.removePressEventListener();
   }

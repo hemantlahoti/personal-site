@@ -4,7 +4,7 @@
         </span>
         <span class="cmdLabel">Command Prompt</span>
         <span class="cursorIcon" id="cursorIcon" [style.background-image]="'url(./assets/icons8-cursor-48.png)'"></span>
-        <span class="closeIcon" [style.background-image]="'url(./assets/cmd_close_icon.png)'"></span>
+        <button class="closeIcon" (click)="changeView()" [style.background-image]="'url(./assets/cmd_close_icon.png)'"></button>
     </div>
     <div class="cmdBody" id="cmdBody">
         <div class="cmdContainer">

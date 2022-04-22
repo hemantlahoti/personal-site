@@ -4,7 +4,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     .tile {
         box-shadow: 0px 0px 15px gray;
         border: 1px solid;
@@ -14,7 +13,7 @@
         min-width: 300px;
         cursor: pointer;
         text-align: center;
-        font-size: larger;
+        font-size: 1.6rem;
 
 
         .tileSpan {

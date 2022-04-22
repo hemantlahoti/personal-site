@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-command-prompt',
@@ -7,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angula
 })
 export class CommandPromptComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private globalService: GlobalService) { }
 
   ngOnInit(): void {
   }
@@ -29,5 +30,10 @@ export class CommandPromptComponent implements OnInit, AfterViewInit {
         cmdBody.style.display = 'inline-block';
       }
     }, 1000);
+  }
+
+  changeView() {
+    this.globalService.showCommandPrompt = false;
+    this.globalService.showHomePageTiles = true;
   }
 }

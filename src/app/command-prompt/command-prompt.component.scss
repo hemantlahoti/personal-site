@@ -44,11 +44,16 @@
         width: 113px;
         height: 21px;
         float: right;
+        border: none;
+    }
+    .closeIcon:focus {
+        outline: none;
     }
 
     .cmdLabel {
         vertical-align: top;
         margin-left: 1%;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
     }
 
     .cmdBody {

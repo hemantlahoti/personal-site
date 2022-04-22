@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit, AfterViewInit {
 
-  static welcomeTimeGap = 10; // 1.5 seconds
-  static pageStartTimeout = 10; // 1.5 seconds
-  static commandPromptChangeTimeout = 10; // 3 seconds
+  static welcomeTimeGap = 1500; // 1.5 seconds
+  static pageStartTimeout = 1500; // 1.5 seconds
+  static commandPromptChangeTimeout = 3000; // 3 seconds
 
 
   welcomeMessage: string;
@@ -74,7 +74,6 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   changeToCommandPrompt() {
-    // this.globalService.ToShowCommandPrompt();
     this.router.navigateByUrl('/cmd');
     
   }

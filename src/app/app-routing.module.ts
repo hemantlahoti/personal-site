@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutmeComponent } from './aboutme/aboutme.component';
-import { CommandPromptComponent } from './command-prompt/command-prompt.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { HomepageTilesComponent } from './homepage-tiles/homepage-tiles.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { LetsConnectComponent } from './lets-connect/lets-connect.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'welcome' },
-  { path: 'welcome', component: HomepageComponent },
-  { path: 'myexperience', component: ExperienceComponent },
-  { path: 'cmd', component: CommandPromptComponent},
-  { path: 'homepage', component: HomepageTilesComponent},
-  { path: 'letsconnect', component: LetsConnectComponent},
-  { path: 'aboutme', component: AboutmeComponent},
-  { path: '**', redirectTo: 'welcome'},
+  { path: 'welcome', loadChildren: () => import('./homepage/welcome.module').then(m => m.WelcomeModule)},
+  { path: 'myexperience', loadChildren: () => import('./experience/experience.module').then(m => m.ExperienceModule)},
+  { path: 'cmd', loadChildren: () => import('./command-prompt/commandprompt.module').then(m => m.CommandpromptModule)},
+  { path: 'homepage', loadChildren: () => import('./homepage-tiles/homepage.module').then(m => m.HomepageModule)},
+  { path: 'letsconnect', loadChildren: () => import('./lets-connect/letsconnect.module').then(m => m.LetsconnectModule)},
+  { path: 'aboutme',  loadChildren: () => import('./aboutme/aboutme.module').then(m => m.AboutmeModule)},
+  { path: '**', redirectTo: 'welcome'}, 
 ];
 
 @NgModule({

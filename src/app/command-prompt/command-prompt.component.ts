@@ -1,14 +1,16 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { GlobalService } from '../global.service';
+import { AfterViewInit, Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-command-prompt',
   templateUrl: './command-prompt.component.html',
   styleUrls: ['./command-prompt.component.scss']
 })
-export class CommandPromptComponent implements OnInit, AfterViewInit {
-
-  constructor(private globalService: GlobalService) { }
+export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy {
+  public removePressEventListener: () => void;
+  public removeClickEventListener: () => void;
+  public timeout: any = null;
+  constructor(private renderer: Renderer2, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +23,26 @@ export class CommandPromptComponent implements OnInit, AfterViewInit {
         this.ShowCmdBody();
       }, 3100);
     }
+    this.timeout = setTimeout(() => {
+      this.removeClickEventListener = this.renderer.listen(document, 'click', (event) => {
+        this.handleAnchorClick(event);
+      });
+      this.removePressEventListener = this.renderer.listen(document, 'keypress', (event) => {
+        this.handleAnchorClick(event);
+      });
+    }, 25000);
+  }
+
+  ngOnDestroy(): void {
+    if(this.timeout){
+      clearTimeout(this.timeout);
+    }
+  }
+  
+  handleAnchorClick(event) {
+    this.router.navigate(['/homepage']);
+    this.removeClickEventListener();
+    this.removePressEventListener();
   }
 
   ShowCmdBody() {
@@ -33,7 +55,6 @@ export class CommandPromptComponent implements OnInit, AfterViewInit {
   }
 
   changeView() {
-    this.globalService.showCommandPrompt = false;
-    this.globalService.showHomePageTiles = true;
+    this.router.navigate(['/homepage']);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage-tiles',
@@ -7,14 +7,14 @@ import { GlobalService } from '../global.service';
   styleUrls: ['./homepage-tiles.component.scss']
 })
 export class HomepageTilesComponent implements OnInit {
-
-  constructor(private globalService: GlobalService) { }
+p
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   bringBackCMD() {
-    this.globalService.ToShowCommandPrompt();
+    this.router.navigate(['/cmd']);
   }
 
   goToInstagram() {
@@ -29,6 +29,18 @@ export class HomepageTilesComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     link.remove();
+  }
+
+  letsConnect() {
+    this.router.navigate(['/letsconnect']);
+  }
+
+  aboutMe() {
+    this.router.navigate(['/aboutme']);
+  }
+
+  myExperiences() {
+    this.router.navigate(['/myexperience']);
   }
 
 }

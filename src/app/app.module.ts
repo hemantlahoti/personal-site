@@ -7,6 +7,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { CommandPromptComponent } from './command-prompt/command-prompt.component';
 import { HomepageTilesComponent } from './homepage-tiles/homepage-tiles.component';
+import { LetsConnectComponent } from './lets-connect/lets-connect.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomepageTilesComponent } from './homepage-tiles/homepage-tiles.componen
     HomepageComponent,
     ExperienceComponent,
     CommandPromptComponent,
-    HomepageTilesComponent
+    HomepageTilesComponent,
+    LetsConnectComponent,
+    AboutmeComponent
   ],
   imports: [
     BrowserModule,

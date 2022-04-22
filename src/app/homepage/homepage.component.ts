@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
-import { GlobalService } from '../global.service';
-
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -8,19 +7,14 @@ import { GlobalService } from '../global.service';
 })
 export class HomepageComponent implements OnInit, AfterViewInit {
 
-  static welcomeTimeGap = 1500; // 1.5 seconds
-  static pageStartTimeout = 1500; // 1.5 seconds
-  static commandPromptChangeTimeout = 3000; // 3 seconds
+  static welcomeTimeGap = 10; // 1.5 seconds
+  static pageStartTimeout = 10; // 1.5 seconds
+  static commandPromptChangeTimeout = 10; // 3 seconds
 
-  public removePressEventListener: () => void;
-  public removeClickEventListener: () => void;
-
-  get toShowCMD(): boolean { return this.globalService.showCommandPrompt; }
-  get toShowTiles(): boolean { return this.globalService.showHomePageTiles; }
 
   welcomeMessage: string;
 
-  constructor(private renderer: Renderer2, private globalService: GlobalService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.welcomeMessage = 'नमस्ते!';
@@ -80,21 +74,10 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   changeToCommandPrompt() {
-    this.globalService.ToShowCommandPrompt();
-    setTimeout(() => {
-      this.removeClickEventListener = this.renderer.listen(document, 'click', (event) => {
-        this.handleAnchorClick(event);
-      });
-      this.removePressEventListener = this.renderer.listen(document, 'keypress', (event) => {
-        this.handleAnchorClick(event);
-      });
-    }, 25000);
+    // this.globalService.ToShowCommandPrompt();
+    this.router.navigateByUrl('/cmd');
+    
   }
 
-  handleAnchorClick(event) {
-    this.globalService.ToShowHomePageTiles();
-    this.removeClickEventListener();
-    this.removePressEventListener();
-  }
 
 }

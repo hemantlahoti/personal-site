@@ -27,11 +27,11 @@
 
     .tileOne {
         animation: slideinleftupcorner 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png);      
+        background-image: url(../../../src/assets/images/tile_thumbnail.png);      
         background-position: left top;  
     }
     .tileOne:hover {
-        background-image: url(../../../src/assets/about_me_thumbnail.png);
+        background-image: url(../../../src/assets/images/about_me_thumbnail.png);
         span{
             display: none;
         }
@@ -39,32 +39,76 @@
 
     .tileTwo {
         animation: slideinupcenter 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png); 
+        background-image: url(../../../src/assets/images/tile_thumbnail.png); 
         background-position: center top;
+    }
+    .tileTwo:hover {
+        background-image: url(../../../src/assets/images/experience_thumbnail.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        span{
+            display: none;
+        }
     }
 
     .tileThree {
         animation: slideinrightupcorner 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png);
+        background-image: url(../../../src/assets/images/tile_thumbnail.png);
         background-position: right top;  
     }
+    .tileThree:hover {
+        background-image: url(../../../src/assets/images/photography_thumbnail.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        span{
+            display: none;
+        }
+    }
+
 
     .tileFour {
         animation: slideinleftdowncorner 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png); 
+        background-image: url(../../../src/assets/images/tile_thumbnail.png); 
         background-position: left bottom; 
+    }
+    .tileFour:hover {
+        background-image: url(../../../src/assets/images/resume_thumbnail.png);
+        background-position: left top;
+        span{
+            display: none;
+        }
     }
 
     .tileFive {
         animation: slideindowncenter 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png);  
+        background-image: url(../../../src/assets/images/tile_thumbnail.png);  
         background-position: center bottom; 
+    }
+    .tileFive:hover {
+        background-image: url(../../../src/assets/images/lets_connect_thumbnail.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        span{
+            display: none;
+        }
     }
 
     .tileSix {
         animation: slideinrightdowncenter 2s;
-        background-image: url(../../../src/assets/tile_thumbnail.png);  
+        background-image: url(../../../src/assets/images/tile_thumbnail.png);  
         background-position: right bottom; 
+    }
+    .tileSix:hover {
+        background-image: url(../../../src/assets/images/show_cmd_again_thumbnail.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        span{
+            display: none;
+        }
     }
 
     .tile:hover {

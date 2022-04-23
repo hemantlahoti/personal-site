@@ -24,7 +24,7 @@ p
   downloadResume() {
     let link = document.createElement('a');
     link.setAttribute('type', 'hidden');
-    link.href = 'assets/Resume_Hemant_Lahoti.pdf';
+    link.href = 'assets/files/Resume_Hemant_Lahoti.pdf';
     link.download = 'Resume_Hemant_Lahoti.pdf';
     document.body.appendChild(link);
     link.click();

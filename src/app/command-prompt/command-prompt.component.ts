@@ -31,7 +31,7 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
       this.removePressEventListener = this.renderer.listen(document, 'keypress', (event) => {
         this.handleAnchorClick(event);
       });
-    }, 25000);
+    }, 23000);
   }
 
   ngOnDestroy(): void {

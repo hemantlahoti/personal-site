@@ -115,9 +115,9 @@
             display: inline-block;
         }
         #linetwo {
-            width: 35rem;
+            width: 30rem;
             opacity: 0;
-            animation: type 8s steps(60, end);
+            animation: type 7s steps(60, end);
             animation-delay: 6s;
             animation-fill-mode: forwards;
             display: inline-block;
@@ -125,7 +125,7 @@
         #cmdLocationText2 {
             opacity: 0;
             animation: show;
-            animation-delay: 14s;
+            animation-delay: 13s;
             animation-fill-mode: forwards;
             display: inline-block;
         }
@@ -133,7 +133,7 @@
             width: 10rem;
             opacity: 0;
             animation: type 2s steps(20, end);
-            animation-delay: 14s;
+            animation-delay: 13s;
             animation-fill-mode: forwards;
             display: inline-block;
         }
@@ -141,7 +141,7 @@
         #cmdLocationText3 {
             opacity: 0;
             animation: show;
-            animation-delay: 16s;
+            animation-delay: 15s;
             animation-fill-mode: forwards;
             display: inline-block;
         }
@@ -150,7 +150,7 @@
             width: 34rem;
             opacity: 0;
             animation: type 10s steps(80, end);
-            animation-delay: 16s;
+            animation-delay: 15s;
             animation-fill-mode: forwards;
             display: inline-block;
         }

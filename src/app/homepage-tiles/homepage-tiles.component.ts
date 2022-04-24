@@ -18,7 +18,7 @@ p
   }
 
   goToInstagram() {
-    //window.open('https://www.instagram.com/hemantlahoti_/');
+    window.open('https://www.instagram.com/hemantlahoti_/');
   }
 
   downloadResume() {

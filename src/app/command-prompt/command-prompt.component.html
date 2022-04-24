@@ -1,10 +1,17 @@
-<div class="commandPromptDiv">
+<div class="commandPromptDiv" id="commandPromptDiv">
     <div class="headerDiv">
         <span class="cmdIcon" [style.background-image]="'url(./assets/images/icons8-command-line-48.png)'">
         </span>
         <span class="cmdLabel">Command Prompt</span>
-        <span class="cursorIcon" id="cursorIcon" [style.background-image]="'url(./assets/images/icons8-cursor-48.png)'"></span>
-        <button class="closeIcon" (click)="changeView()" [style.background-image]="'url(./assets/images/cmd_close_icon.png)'"></button>
+        <span class="cursorIcon" id="cursorIcon"
+            [style.background-image]="'url(./assets/images/icons8-cursor-48.png)'"></span>
+        <div class="cmdButtons">
+            <button class="minimizeIcon" (click)="changeView()"
+                [style.background-image]="'url(./assets/images/cmd_close_icon.png)'"></button>
+            <button class="maximizeIcon maxbg" (click)="maximizeView()" id="maxBtn"></button>
+            <button class="closeIcon" (click)="changeView()"
+                [style.background-image]="'url(./assets/images/cmd_close_icon.png)'"></button>
+        </div>
     </div>
     <div class="cmdBody" id="cmdBody">
         <div class="cmdContainer">

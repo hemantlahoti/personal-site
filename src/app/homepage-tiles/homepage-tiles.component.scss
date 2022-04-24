@@ -195,6 +195,7 @@
 
     .tiles-container {
         top: 50%;
+        left: 50%;
         .tile {
             min-height: 150px;
             min-width: 150px;
@@ -207,6 +208,8 @@
 @media only screen and (min-width: 1000px) {
 
     .tiles-container {
+        top: 50%;
+        left: 50%;
         .tile {
             min-height: 200px;
             min-width: 200px;
@@ -219,6 +222,8 @@
 @media only screen and (min-width: 1200px) {
 
     .tiles-container {
+        top: 50%;
+        left: 50%;
         .tile {
             min-height: 300px;
             min-width: 300px;

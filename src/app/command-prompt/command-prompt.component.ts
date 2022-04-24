@@ -10,6 +10,7 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
   public removePressEventListener: () => void;
   public removeClickEventListener: () => void;
   public timeout: any = null;
+  private isCmdMax = false;
   constructor(private renderer: Renderer2, private router: Router) { }
 
   ngOnInit(): void {
@@ -56,5 +57,31 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
 
   changeView() {
     this.router.navigate(['/homepage']);
+  }
+
+  maximizeView() {
+    const div = document.getElementById('commandPromptDiv') as HTMLDivElement;
+    const button =  document.getElementById('maxBtn') as HTMLButtonElement;
+    if(!this.isCmdMax){
+      if(div){
+        div.classList.remove('minimizeCmd');
+        div.classList.add('maximizeCmd');
+      }
+      if(button){
+        button.classList.add('minbg');
+        button.classList.remove('maxgb');
+      }
+    } else {
+      if(div){
+        div.classList.remove('maximizeCmd');
+        div.classList.add('minimizeCmd');
+      }
+      if(button){
+        button.classList.add('maxgb');
+        button.classList.remove('minbg');
+      }
+    }
+
+    this.isCmdMax = !this.isCmdMax;
   }
 }

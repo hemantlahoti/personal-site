@@ -77,6 +77,19 @@ br {
     padding-top: 5%;
 }
 
+.goBack {
+    margin-top: 2%;
+}
+
+.goBack:hover {
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+}
+
+.goBack:focus{
+    outline: none;
+}
+
 #formFeedback {
     margin: 5%;
 }

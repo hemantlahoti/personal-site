@@ -11,6 +11,7 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
   public removeClickEventListener: () => void;
   public timeout: any = null;
   private isCmdMax = false;
+  private isMaxClicked = false;
   constructor(private renderer: Renderer2, private router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
       }, 3100);
     }
     this.timeout = setTimeout(() => {
+      this.isMaxClicked = false;
       this.removeClickEventListener = this.renderer.listen(document, 'click', (event) => {
         this.handleAnchorClick(event);
       });
@@ -41,9 +43,12 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
   }
   
   handleAnchorClick(event) {
-    this.router.navigate(['/homepage']);
-    this.removeClickEventListener();
-    this.removePressEventListener();
+    if(!this.isMaxClicked){
+      this.router.navigate(['/homepage']);
+      this.removeClickEventListener();
+      this.removePressEventListener();
+    }
+    this.isMaxClicked = false;
   }
 
   ShowCmdBody() {
@@ -60,6 +65,7 @@ export class CommandPromptComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   maximizeView() {
+    this.isMaxClicked = true;
     const div = document.getElementById('commandPromptDiv') as HTMLDivElement;
     const button =  document.getElementById('maxBtn') as HTMLButtonElement;
     if(!this.isCmdMax){

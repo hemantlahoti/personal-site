@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.GoToSleep(this.welcomeInHindi.bind(this), HomepageComponent.pageStartTimeout);
+    this.GoToSleep(this.welcomeInEnglish.bind(this), HomepageComponent.pageStartTimeout);
   }
 
   private GoToSleep(callback: any, timeout: number) {
@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         welcomeDiv.classList.remove('fade-in');
         welcomeDiv.classList.add('fade-out');
-        this.GoToSleep(this.welcomeInFrench.bind(this), HomepageComponent.welcomeTimeGap);
+        this.GoToSleep(this.welcomeInHindi.bind(this), HomepageComponent.welcomeTimeGap);
       }, HomepageComponent.welcomeTimeGap);
     }
   }
@@ -62,13 +62,14 @@ export class HomepageComponent implements OnInit, AfterViewInit {
 
   private welcomeInHindi() {
     const welcomeDiv = document.getElementById('welcome') as HTMLDivElement;
+    this.welcomeMessage = 'नमस्ते!';
     if (welcomeDiv) {
       welcomeDiv.classList.remove('fade-out');
       welcomeDiv.classList.add('fade-in');
       setTimeout(() => {
         welcomeDiv.classList.remove('fade-in');
         welcomeDiv.classList.add('fade-out');
-        this.GoToSleep(this.welcomeInEnglish.bind(this), HomepageComponent.welcomeTimeGap);
+        this.GoToSleep(this.welcomeInFrench.bind(this), HomepageComponent.welcomeTimeGap);
       }, HomepageComponent.welcomeTimeGap);
     }
   }

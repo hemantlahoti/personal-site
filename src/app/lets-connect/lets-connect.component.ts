@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lets-connect',
@@ -8,13 +8,21 @@ import { Router } from '@angular/router';
 })
 export class LetsConnectComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  feedbackForm =  new FormGroup({
+    name:  new FormControl('', Validators.required),
+    email:  new FormControl('', [Validators.required, Validators.email]),
+    message:  new FormControl('', Validators.maxLength(500))
+  });
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  goBack() {
-    this.router.navigate(['/homepage']);
+  submitFeedback(){
+    alert("Currently this app does not have the capability to do transactions, please try again!");
+    this.feedbackForm.reset();
+    // alert("Your message/feedback was submitted successfully!");
   }
 
 }

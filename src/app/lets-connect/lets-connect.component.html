@@ -1,4 +1,89 @@
-Under construction! Please come back later...
-<br>
-
-<button (click)="goBack()">Go Back</button>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 header">
+            <h2>Let's Connect</h2>
+        </div>
+    </div>
+    <div class="row cardrow">
+        <div class="col-lg-5 col-md-5 col-sm-5 cardTile">
+            <div class="urlCard">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 connectDiv">
+                            <img src="../../assets/images/github_logo.png" class="connectImg">
+                            <a href="https://github.com/hemantlahoti" target="_blank" class="connectlink">GitHub</a>
+                        </div>
+                        <div class="col-sm-6 connectDiv">
+                            <img src="../../assets/images/fb_logo.png" class="connectImg">
+                            <a href="https://www.facebook.com/hemu031995" target="_blank" class="connectlink">Facebook</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 connectDiv">
+                            <img src="../../assets/images/instagram_logo.png" class="connectImg">
+                            <a href="https://www.instagram.com/hemantlahoti_/" target="_blank" class="connectlink">Instagram</a>
+                        </div>
+                        <div class="col-sm-6 connectDiv">
+                            <img src="../../assets/images/discord_logo.png" class="connectImg">
+                            <a href="https://discord.com/channels/967912785319166074/967912786023841833"
+                                target="_blank" class="connectlink">Discord</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 cardTile">
+            <div class="blankCard"></div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 cardTile">
+            <div class="formCard">
+                <br>
+                <form id="formFeedback" [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+                    <div class="container">
+                        <div class="row formRowHeader">
+                            <div class="col-sm-12">
+                                <h5>Please leave me a message/feedback</h5>
+                            </div>
+                        </div>
+                        <div class="row formRow">
+                            <div class="col-sm-12">
+                                <input placeholder="Your Name" type="text" formControlName="name" maxlength="20">
+                                <br><small class="text-danger"
+                                    *ngIf="feedbackForm.get('name').hasError('required') && (feedbackForm.get('name').dirty || feedbackForm.get('name').touched)">
+                                    Name is required.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row formRow">
+                            <div class="col-sm-12">
+                                <input placeholder="Your E-mail Address" type="email" formControlName="email">
+                                <br><small class="text-danger"
+                                    *ngIf="feedbackForm.get('email').hasError('required') && (feedbackForm.get('email').dirty || feedbackForm.get('email').touched)">
+                                    Email address is required.
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="feedbackForm.get('email').hasError('email') && (feedbackForm.get('email').dirty || feedbackForm.get('email').touched)">
+                                    Email address is invalid.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row formRow">
+                            <div class="col-sm-12">
+                                <textarea class="textAreaForm" placeholder="Your Message/Feedback Here..."
+                                    maxlength="500" formControlName="message"></textarea>
+                                <br><span style="font-size: small;float: left;">Max. 500 characters</span>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row formRowFooter">
+                            <div class="col-sm-12">
+                                <button class="btn btn-info" type="submit"
+                                    [disabled]="!feedbackForm.valid">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

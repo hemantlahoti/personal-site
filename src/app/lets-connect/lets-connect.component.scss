@@ -1,0 +1,90 @@
+.urlCard,
+.formCard {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    min-height: 300px;
+    display: inline-block;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.cardrow {
+    margin-top: 10%;
+}
+
+.cardTile {
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+.header,
+br {
+    font-family: cursive;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.formRow {
+    text-align: left;
+    margin-top: 5%;
+}
+
+.textAreaForm {
+    resize: none;
+    width: 100%;
+    height: 10rem;
+}
+
+.connectDiv {
+    min-height: 150px;
+}
+
+.connectImg {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+}
+
+.connectlink {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    color: #54b3d6;
+    transition: color .3s ease-in-out;
+    font-size: large;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.connectlink:hover {
+    border-bottom: 1px solid #54b3d6;
+    border-left: 1px solid #54b3d6;
+    border-right: 1px solid #54b3d6;
+    border-radius: 5px;
+    color: white;
+}
+
+.urlCard .container {
+    padding-top: 5%;
+}
+
+#formFeedback {
+    margin: 5%;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .urlCard,
+    .formCard {
+        margin-top: 5%;
+    }
+}

@@ -177,3 +177,54 @@
         transform: translate(0%, 0%);
     }
 }
+
+@media only screen and (max-width: 768px) {
+
+    .tiles-container {
+        top: 100%;
+        .tile {
+            min-height: 200px;
+            min-width: 200px;
+            font-size: 1.6rem;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .tiles-container {
+        top: 50%;
+        .tile {
+            min-height: 150px;
+            min-width: 150px;
+            font-size: 1.3rem;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .tiles-container {
+        .tile {
+            min-height: 200px;
+            min-width: 200px;
+            font-size: 1.5rem;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .tiles-container {
+        .tile {
+            min-height: 300px;
+            min-width: 300px;
+            font-size: 1.6rem;
+        }
+    }
+
+}
+

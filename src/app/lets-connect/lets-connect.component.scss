@@ -1,16 +1,33 @@
-.urlCard,
-.formCard {
+.divCard {
     border-radius: 10px;
     box-shadow: 0px 0px 10px gray;
+    min-height: 80%;
+    display: inline-block;
+    min-width: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    text-align: center;
+}
+.blankCard {
+    text-align: center;
+    border-right: 1px gray;
+    height: 90%;
+    margin-top: 30%;
+    box-shadow: 0 0 20px rgba(150, 147, 147, 0.75);
+    clip-path: inset(1px -21px 2px 2px);
+}
+
+.urlCard,
+.formCard {
     min-height: 300px;
     display: inline-block;
     min-width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-
 }
 
-.cardrow {
-    margin-top: 10%;
+.connect {
+    margin-top: 5%;
 }
 
 .cardTile {
@@ -22,7 +39,7 @@
 .header,
 br {
     font-family: cursive;
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
 }
 
@@ -88,7 +105,7 @@ br {
     border-bottom-left-radius: 400px;
 }
 
-.goBack:focus{
+.goBack:focus {
     outline: none;
 }
 

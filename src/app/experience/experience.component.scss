@@ -1,0 +1,26 @@
+.divCard {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    min-height: 80%;
+    display: inline-block;
+    min-width: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    text-align: center;
+}
+
+.container {
+    vertical-align: middle;
+}
+
+.header {
+    font-family: cursive;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.underconstruction {
+    margin-top: 20%;
+}
